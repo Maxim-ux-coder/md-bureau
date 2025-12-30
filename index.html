@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MD Bureau — Юридические услуги для iGaming и IT</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(30, 60, 114, 0.95);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+       .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: white;
+            border-radius: 8px;
+            padding: 10px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .logo-container img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .brand-name {
+            color: #1e3c72;
+            font-weight: bold;
+            font-size: 24px;
+            letter-spacing: 2px;
+        }
+
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        nav a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s;
+        }
+
+        nav a:hover:after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #0f2847 0%, #1e3c72 50%, #2a5298 100%);
+            position: relative;
+            overflow: hidden;
+            margin-top: 100px;
+            padding: 80px 0;
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(42, 82, 152, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(61, 106, 181, 0.3) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 800;
+            margin-bottom: 40px;
+            line-height: 1.2;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 img {
+            max-width: 500px;
+            width: 100%;
+            height: auto;
+            margin-bottom: 0;
+            filter: brightness(1.2) drop-shadow(0 10px 30px rgba(0,0,0,0.3));
+        }
+
+
+        .hero-subtitle {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #89b4f8;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-description {
+            font-size: 20px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .feature-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+        }
+
+        .feature-box:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .feature-box h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #89b4f8;
+        }
+
+        .feature-box p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .jurisdiction-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-size: 16px;
+            margin-top: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .jurisdiction-list {
+            color: #89b4f8;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Partners Section */
+        .partners {
+            padding: 100px 0;
+            background: white;
+            overflow: hidden;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            color: #1e3c72;
+            margin-bottom: 60px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #1e3c72, #2a5298);
+            border-radius: 2px;
+        }
+
+        .partners-slider {
+            position: relative;
+            margin-top: 50px;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+        .partners-track {
+            display: flex;
+            animation: scroll 40s linear infinite;
+            gap: 80px;
+        }
+
+        .partner-logo {
+            flex: 0 0 auto;
+            width: 220px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+            transition: all 0.3s;
+        }
+
+        .partner-logo:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(30, 60, 114, 0.15);
+            border-color: #2a5298;
+        }
+
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            opacity: 0.7;
+            transition: all 0.3s;
+        }
+
+        .partner-logo:hover img {
+            opacity: 1;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .partners-track:hover {
+            animation-play-state: paused;
+        }
+
+        /* Clients Section */
+        .clients {
+            padding: 100px 0;
+            background: #f8f9fa;
+        }
+
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .client-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            transition: all 0.3s;
+            border-left: 4px solid #2a5298;
+        }
+
+        .client-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(30, 60, 114, 0.12);
+        }
+
+        .client-card h3 {
+            color: #1e3c72;
+            font-size: 22px;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .client-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .client-card li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #555;
+            font-size: 15px;
+        }
+
+        .client-card li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #2a5298;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .pricing-card {
+            background: white;
+            border: 2px solid #e8e8e8;
+            border-radius: 20px;
+            padding: 45px 35px;
+            text-align: center;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, #1e3c72, #2a5298, #3d6ab5);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(30, 60, 114, 0.2);
+            border-color: #2a5298;
+        }
+
+        .pricing-card.featured {
+            border-color: #2a5298;
+            border-width: 3px;
+            background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+        }
+
+        .pricing-card.featured::after {
+            content: 'ПОПУЛЯРНЫЙ';
+            position: absolute;
+            top: 30px;
+            right: -35px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 5px 40px;
+            font-size: 12px;
+            font-weight: bold;
+            transform: rotate(45deg);
+            letter-spacing: 1px;
+        }
+
+        .pricing-card h3 {
+            color: #1e3c72;
+            font-size: 32px;
+            margin-bottom: 35px;
+            font-weight: 800;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin-bottom: 35px;
+            text-align: left;
+        }
+
+        .pricing-card li {
+            padding: 14px 0;
+            color: #555;
+            padding-left: 35px;
+            position: relative;
+            font-size: 16px;
+        }
+
+        .pricing-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #2a5298;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 16px 45px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(30, 60, 114, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0f2847 0%, #1e3c72 100%);
+            color: white;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+
+        .footer-content {
+            margin-bottom: 30px;
+        }
+
+        footer h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        footer p {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        footer a {
+            color: #89b4f8;
+            text-decoration: none;
+            margin: 0 20px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero-subtitle {
+                font-size: 20px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .header-content {
+                justify-content: center;
+            }
+
+            .logo-container {
+                width: 150px;
+                height: 150px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .hero-features {
+                grid-template-columns: 1fr;
+            }
+
+            .partners-track {
+                gap: 40px;
+            }
+
+            .partner-logo {
+                width: 180px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="images/md-bureau.png" alt="MD Bureau">
+                    <span class="brand-name">MD BUREAU</span>
+                </div>
+
+                <nav>
+                    <ul>
+                        <li><a href="#about">О нас</a></li>
+                        <li><a href="#partners">Партнеры</a></li>
+                        <li><a href="#clients">Клиенты</a></li>
+                        <li><a href="#pricing">Услуги</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+        <div class="container">
+            <div class="hero-content">
+                
+                <div class="hero-subtitle">Юридическое сопровождение бизнеса нового поколения</div>
+                <div class="hero-description">
+                    Команда юристов с многолетним управленческим опытом<br>
+                    в ведущих российских и международных компаниях
+                </div>
+
+                <div class="hero-features">
+                    <div class="feature-box">
+                        <h3>Снижение рисков</h3>
+                        <p>Минимизация правовых и финансовых рисков</p>
+                    </div>
+                    <div class="feature-box">
+                        <h3>Рост бизнеса</h3>
+                        <p>Устойчивое развитие и масштабирование</p>
+                    </div>
+                    <div class="feature-box">
+                        <h3>Оптимизация</h3>
+                        <p>Выстраивание процессов и Legal Tech</p>
+                    </div>
+                    <div class="feature-box">
+                        <h3>Глобально</h3>
+                        <p>Работа по всему миру</p>
+                    </div>
+                </div>
+
+                <div class="jurisdiction-badge">
+                    <div> Международная экспертиза</div>
+                    <div class="jurisdiction-list">
+                        ОАЭ • США • ЕС • Бразилия • ЮАР • Казахстан • Армения • Узбекистан
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners" id="partners">
+        <div class="container">
+            <h2 class="section-title">Наши партнеры</h2>
+        </div>
+        <div class="partners-slider">
+            <div class="partners-track">
+                <!-- Partner 1 -->
+                <div class="partner-logo">
+                    <img src="images/bm.png" alt="Partner 1">
+                </div>
+                <!-- Partner 2 -->
+                <div class="partner-logo">
+                    <img src="images/mr.png" alt="Partner 2">
+                </div>
+                <!-- Partner 3 -->
+                <div class="partner-logo">
+                    <img src="images/od.png" alt="Partner 3">
+                </div>
+                <!-- Partner 4 -->
+                <div class="partner-logo">
+                    <img src="images/rb.png" alt="Partner 4">
+                </div>
+                <!-- Partner 5 -->
+                <div class="partner-logo">
+                    <img src="images/sd.png" alt="Partner 5">
+                </div>
+                <!-- Partner 6 -->
+                <div class="partner-logo">
+                    <img src="images/sp.png" alt="Partner 6">
+                </div>
+                <!-- Partner 7 -->
+                <div class="partner-logo">
+                    <img src="images/uf.png" alt="Partner 7">
+                </div>
+                <!-- Partner 8 -->
+                <div class="partner-logo">
+                   <img src="images/vs.png" alt="Partner 8">
+                </div>
+                
+                <!-- Duplicate for seamless loop -->
+                <div class="partner-logo">
+                    <div class="partner-placeholder">Partner Logo 1</div>
+                </div>
+                <div class="partner-logo">
+                    <div class="partner-placeholder">Partner Logo 2</div>
+                </div>
+                <div class="partner-logo">
+                    <div class="partner-placeholder">Partner Logo 3</div>
+                </div>
+                <div class="partner-logo">
+                    <div class="partner-placeholder">Partner Logo 4</div>
+                </div>
+                <div class="partner-logo">
+                    <div class="partner-placeholder">Partner Logo 5</div>
+                </div>
+                <div class="partner-logo">
+                    <div class="partner-placeholder">Partner Logo 6</div>
+                </div>
+                <div class="partner-logo">
+                    <div class="partner-placeholder">Partner Logo 7</div>
+                </div>
+                <div class="partner-logo">
+                    <div class="partner-placeholder">Partner Logo 8</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="clients" id="clients">
+        <div class="container">
+            <h2 class="section-title">С кем мы работаем</h2>
+            <div class="clients-grid">
+                <div class="client-card">
+                    <h3>1. Операторы беттинга & онлайн-казино</h3>
+                    <ul>
+                        <li>Онлайн-букмекеры</li>
+                        <li>Онлайн-казино</li>
+                        <li>Платформы для ставок на спорт</li>
+                        <li>Оффшорные и оншорные операторы азартных игр</li>
+                    </ul>
+                </div>
+
+                <div class="client-card">
+                    <h3>2. IT-проекты в iGaming</h3>
+                    <ul>
+                        <li>Платформы для запуска казино «под ключ»</li>
+                        <li>SaaS-решения для беттинга и гэмблинга</li>
+                        <li>Провайдеры white-label решений</li>
+                        <li>Разработчики блокчейн-платформ</li>
+                    </ul>
+                </div>
+
+                <div class="client-card">
+                    <h3>3. Провайдеры контента и технологий</h3>
+                    <ul>
+                        <li>Разработчики игровых автоматов и live-casino</li>
+                        <li>Провайдеры RNG, live-дилеров</li>
+                        <li>Поставщики odds feeds и спортивной аналитики</li>
+                        <li>Разработчики антифрод- и AML-систем</li>
+                    </ul>
+                </div>
+
+                <div class="client-card">
+                    <h3>4. Платёжные и финтех-компании</h3>
+                    <ul>
+                        <li>Платёжные провайдеры (PSP), работающие с high-risk бизнесом</li>
+                        <li>Электронные кошельки</li>
+                        <li>Криптоплатёжные сервисы</li>
+                        <li>EMI и необанки, обслуживающие iGaming</li>
+                    </ul>
+                </div>
+
+                <div class="client-card">
+                    <h3>5. Маркетинг и аффилиат-бизнес</h3>
+                    <ul>
+                        <li>Affiliate-сети</li>
+                        <li>Арбитражные команды</li>
+                        <li>Media buying агентства</li>
+                        <li>SEO-платформы и агрегаторы казино/букмекеров</li>
+                    </ul>
+                </div>
+
+                <div class="client-card">
+                    <h3>6. Холдинги</h3>
+                    <ul>
+                        <li>Венчурные фонды</li>
+                        <li>Холдинговые структуры iGaming-групп</li>
+                        <li>M&A-покупатели и продавцы iGaming-активов</li>
+                    </ul>
+                </div>
+
+                <div class="client-card">
+                    <h3>7. Сервисные компании вокруг индустрии</h3>
+                    <ul>
+                        <li>Call-центры и службы поддержки</li>
+                        <li>KYC-провайдеры</li>
+                        <li>Compliance и risk-management компании</li>
+                        <li>Юридические и консалтинговые структуры, выходящие в iGaming</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 class="section-title">Продуктовая линейка</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Base / Start</h3>
+                    <ul>
+                        <li>До X часов в месяц</li>
+                        <li>Договоры</li>
+                        <li>Консультации</li>
+                        <li>Претензии</li>
+                        <li>Ответ ≤ 24 часов</li>
+                    </ul>
+                    <a href="#contact" class="btn">Подключить</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <h3>Business</h3>
+                    <ul>
+                        <li>Выделенный юрист (account)</li>
+                        <li>Все договоры + кастомизация</li>
+                        <li>Претензионка</li>
+                        <li>Переговоры</li>
+                        <li>Ответ ≤ 4–8 часов</li>
+                    </ul>
+                    <a href="#contact" class="btn">Подключить</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Pro / Legal Department</h3>
+                    <ul>
+                        <li>Юрист как внешний in-house</li>
+                        <li>Подключение специалистов</li>
+                        <li>Судебная работа</li>
+                        <li>Аудиты</li>
+                    </ul>
+                    <a href="#contact" class="btn">Подключить</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <h3>MD Bureau</h3>
+                <p>Юридическое сопровождение для iGaming и IT-бизнеса</p>
+                <p>
+                    <a href="mailto:info@mdbureau.com">info@mdbureau.com</a>
+                    <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+                </p>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 MD Bureau. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
