@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MD Bureau — Юридические услуги для iGaming и IT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -16,12 +17,19 @@
             line-height: 1.6;
             color: #333;
             background: #fff;
+            overflow-x: hidden;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
         }
 
         /* Header */
@@ -29,7 +37,7 @@
             background: rgba(30, 60, 114, 0.95);
             backdrop-filter: blur(10px);
             color: white;
-            padding: 20px 0;
+            padding: 15px 0;
             position: fixed;
             width: 100%;
             top: 0;
@@ -37,40 +45,111 @@
             box-shadow: 0 2px 20px rgba(0,0,0,0.1);
         }
 
+        @media (min-width: 768px) {
+            header {
+                padding: 20px 0;
+            }
+        }
+
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
-       .logo-container {
+        .logo-container {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 10px;
             background: white;
             border-radius: 8px;
-            padding: 10px 20px;
+            padding: 8px 15px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
+        @media (min-width: 768px) {
+            .logo-container {
+                gap: 15px;
+                padding: 10px 20px;
+            }
+        }
+
         .logo-container img {
-            width: 50px;
-            height: 50px;
+            width: 35px;
+            height: 35px;
             object-fit: contain;
+        }
+
+        @media (min-width: 768px) {
+            .logo-container img {
+                width: 50px;
+                height: 50px;
+            }
         }
 
         .brand-name {
             color: #1e3c72;
             font-weight: bold;
-            font-size: 24px;
-            letter-spacing: 2px;
+            font-size: 18px;
+            letter-spacing: 1.5px;
         }
 
+        @media (min-width: 768px) {
+            .brand-name {
+                font-size: 24px;
+                letter-spacing: 2px;
+            }
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: block;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        @media (min-width: 992px) {
+            .mobile-menu-toggle {
+                display: none;
+            }
+        }
+
+        nav {
+            display: none;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        nav.active {
+            display: block;
+        }
+
+        @media (min-width: 992px) {
+            nav {
+                display: block !important;
+                width: auto;
+                margin-top: 0;
+            }
+        }
 
         nav ul {
             list-style: none;
             display: flex;
-            gap: 30px;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        @media (min-width: 992px) {
+            nav ul {
+                flex-direction: row;
+                gap: 30px;
+            }
         }
 
         nav a {
@@ -79,6 +158,28 @@
             font-weight: 500;
             transition: all 0.3s;
             position: relative;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            padding: 8px 0;
+        }
+
+        @media (min-width: 992px) {
+            nav a {
+                font-size: 16px;
+                padding: 0;
+            }
+        }
+
+        nav a i {
+            font-size: 14px;
+        }
+
+        @media (min-width: 992px) {
+            nav a i {
+                display: none;
+            }
         }
 
         nav a:after {
@@ -104,8 +205,15 @@
             background: linear-gradient(135deg, #0f2847 0%, #1e3c72 50%, #2a5298 100%);
             position: relative;
             overflow: hidden;
-            margin-top: 100px;
-            padding: 80px 0;
+            margin-top: 70px;
+            padding: 40px 0;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                margin-top: 100px;
+                padding: 80px 0;
+            }
         }
 
         .hero:before {
@@ -130,54 +238,127 @@
         }
 
         .hero h1 {
-            font-size: 64px;
+            font-size: 32px;
             font-weight: 800;
-            margin-bottom: 40px;
+            margin-bottom: 25px;
             line-height: 1.2;
             text-shadow: 0 4px 20px rgba(0,0,0,0.3);
             animation: fadeInUp 1s ease-out;
         }
 
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 48px;
+                margin-bottom: 40px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero h1 {
+                font-size: 64px;
+            }
+        }
+
         .hero h1 img {
-            max-width: 500px;
+            max-width: 280px;
             width: 100%;
             height: auto;
             margin-bottom: 0;
             filter: brightness(1.2) drop-shadow(0 10px 30px rgba(0,0,0,0.3));
         }
 
+        @media (min-width: 768px) {
+            .hero h1 img {
+                max-width: 400px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero h1 img {
+                max-width: 500px;
+            }
+        }
 
         .hero-subtitle {
-            font-size: 28px;
+            font-size: 18px;
             font-weight: 600;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             color: #89b4f8;
             animation: fadeInUp 1s ease-out 0.2s both;
         }
 
+        @media (min-width: 768px) {
+            .hero-subtitle {
+                font-size: 24px;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-subtitle {
+                font-size: 28px;
+            }
+        }
+
         .hero-description {
-            font-size: 20px;
-            line-height: 1.8;
-            margin-bottom: 25px;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
             opacity: 0.95;
             animation: fadeInUp 1s ease-out 0.4s both;
+            padding: 0 10px;
+        }
+
+        @media (min-width: 768px) {
+            .hero-description {
+                font-size: 18px;
+                line-height: 1.8;
+                margin-bottom: 25px;
+                padding: 0;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-description {
+                font-size: 20px;
+            }
         }
 
         .hero-features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin: 50px 0;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin: 30px 0;
             animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        @media (min-width: 640px) {
+            .hero-features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-features {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 30px;
+                margin: 50px 0;
+            }
         }
 
         .feature-box {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            padding: 30px 20px;
+            padding: 25px 15px;
             border-radius: 15px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s;
+        }
+
+        @media (min-width: 768px) {
+            .feature-box {
+                padding: 30px 20px;
+            }
         }
 
         .feature-box:hover {
@@ -186,37 +367,74 @@
         }
 
         .feature-icon {
-            font-size: 48px;
-            margin-bottom: 15px;
-        }
-
-        .feature-box h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
+            font-size: 36px;
+            margin-bottom: 12px;
             color: #89b4f8;
         }
 
+        @media (min-width: 768px) {
+            .feature-icon {
+                font-size: 48px;
+                margin-bottom: 15px;
+            }
+        }
+
+        .feature-box h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+            color: #89b4f8;
+        }
+
+        @media (min-width: 768px) {
+            .feature-box h3 {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+        }
+
         .feature-box p {
-            font-size: 14px;
+            font-size: 13px;
             opacity: 0.9;
+        }
+
+        @media (min-width: 768px) {
+            .feature-box p {
+                font-size: 14px;
+            }
         }
 
         .jurisdiction-badge {
             display: inline-block;
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
-            padding: 20px 40px;
+            padding: 15px 25px;
             border-radius: 50px;
-            font-size: 16px;
-            margin-top: 30px;
+            font-size: 14px;
+            margin-top: 25px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        @media (min-width: 768px) {
+            .jurisdiction-badge {
+                padding: 20px 40px;
+                font-size: 16px;
+                margin-top: 30px;
+            }
         }
 
         .jurisdiction-list {
             color: #89b4f8;
             font-weight: 500;
-            margin-top: 10px;
+            margin-top: 8px;
+            font-size: 13px;
+        }
+
+        @media (min-width: 768px) {
+            .jurisdiction-list {
+                margin-top: 10px;
+                font-size: 15px;
+            }
         }
 
         @keyframes fadeInUp {
@@ -232,16 +450,22 @@
 
         /* Partners Section */
         .partners {
-            padding: 100px 0;
+            padding: 60px 0;
             background: white;
             overflow: hidden;
         }
 
+        @media (min-width: 768px) {
+            .partners {
+                padding: 100px 0;
+            }
+        }
+
         .section-title {
             text-align: center;
-            font-size: 42px;
+            font-size: 28px;
             color: #1e3c72;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
             font-weight: 700;
             position: relative;
             display: inline-block;
@@ -249,46 +473,87 @@
             transform: translateX(-50%);
         }
 
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 36px;
+                margin-bottom: 60px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .section-title {
+                font-size: 42px;
+            }
+        }
+
         .section-title:after {
             content: '';
             position: absolute;
-            bottom: -15px;
+            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
+            width: 80px;
+            height: 3px;
             background: linear-gradient(90deg, #1e3c72, #2a5298);
             border-radius: 2px;
         }
 
+        @media (min-width: 768px) {
+            .section-title:after {
+                bottom: -15px;
+                width: 100px;
+                height: 4px;
+            }
+        }
+
         .partners-slider {
             position: relative;
-            margin-top: 50px;
+            margin-top: 40px;
             overflow: hidden;
-            padding: 20px 0;
+            padding: 15px 0;
+        }
+
+        @media (min-width: 768px) {
+            .partners-slider {
+                margin-top: 50px;
+                padding: 20px 0;
+            }
         }
 
         .partners-track {
             display: flex;
             animation: scroll 40s linear infinite;
-            gap: 80px;
+            gap: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .partners-track {
+                gap: 80px;
+            }
         }
 
         .partner-logo {
             flex: 0 0 auto;
-            width: 220px;
-            height: 120px;
+            width: 150px;
+            height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 25px;
+            padding: 15px;
             transition: all 0.3s;
+        }
+
+        @media (min-width: 768px) {
+            .partner-logo {
+                width: 220px;
+                height: 120px;
+                padding: 25px;
+            }
         }
 
         .partner-logo:hover {
             transform: translateY(-10px) scale(1.05);
             box-shadow: 0 15px 35px rgba(30, 60, 114, 0.15);
-            border-color: #2a5298;
         }
 
         .partner-logo img {
@@ -318,24 +583,51 @@
 
         /* Clients Section */
         .clients {
-            padding: 100px 0;
+            padding: 60px 0;
             background: #f8f9fa;
+        }
+
+        @media (min-width: 768px) {
+            .clients {
+                padding: 100px 0;
+            }
         }
 
         .clients-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-top: 60px;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .clients-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+                margin-top: 60px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .clients-grid {
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                gap: 30px;
+            }
         }
 
         .client-card {
             background: white;
-            padding: 35px;
+            padding: 25px 20px;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.06);
             transition: all 0.3s;
             border-left: 4px solid #2a5298;
+        }
+
+        @media (min-width: 768px) {
+            .client-card {
+                padding: 35px;
+            }
         }
 
         .client-card:hover {
@@ -345,9 +637,26 @@
 
         .client-card h3 {
             color: #1e3c72;
-            font-size: 22px;
-            margin-bottom: 25px;
+            font-size: 18px;
+            margin-bottom: 20px;
             font-weight: 700;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        @media (min-width: 768px) {
+            .client-card h3 {
+                font-size: 22px;
+                margin-bottom: 25px;
+            }
+        }
+
+        .client-card h3 i {
+            color: #2a5298;
+            font-size: 20px;
+            margin-top: 2px;
+            flex-shrink: 0;
         }
 
         .client-card ul {
@@ -356,11 +665,19 @@
         }
 
         .client-card li {
-            padding: 10px 0;
-            padding-left: 30px;
+            padding: 8px 0;
+            padding-left: 28px;
             position: relative;
             color: #555;
-            font-size: 15px;
+            font-size: 14px;
+        }
+
+        @media (min-width: 768px) {
+            .client-card li {
+                padding: 10px 0;
+                padding-left: 30px;
+                font-size: 15px;
+            }
         }
 
         .client-card li:before {
@@ -369,31 +686,64 @@
             left: 0;
             color: #2a5298;
             font-weight: bold;
-            font-size: 18px;
+            font-size: 16px;
+        }
+
+        @media (min-width: 768px) {
+            .client-card li:before {
+                font-size: 18px;
+            }
         }
 
         /* Pricing Section */
         .pricing {
-            padding: 100px 0;
+            padding: 60px 0;
             background: white;
+        }
+
+        @media (min-width: 768px) {
+            .pricing {
+                padding: 100px 0;
+            }
         }
 
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 35px;
+                margin-top: 60px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .pricing-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 40px;
+            }
         }
 
         .pricing-card {
             background: white;
             border: 2px solid #e8e8e8;
             border-radius: 20px;
-            padding: 45px 35px;
+            padding: 35px 25px;
             text-align: center;
             transition: all 0.4s;
             position: relative;
             overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .pricing-card {
+                padding: 45px 35px;
+            }
         }
 
         .pricing-card::before {
@@ -402,8 +752,14 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 6px;
+            height: 5px;
             background: linear-gradient(90deg, #1e3c72, #2a5298, #3d6ab5);
+        }
+
+        @media (min-width: 768px) {
+            .pricing-card::before {
+                height: 6px;
+            }
         }
 
         .pricing-card:hover {
@@ -421,36 +777,80 @@
         .pricing-card.featured::after {
             content: 'ПОПУЛЯРНЫЙ';
             position: absolute;
-            top: 30px;
-            right: -35px;
+            top: 25px;
+            right: -40px;
             background: linear-gradient(135deg, #1e3c72, #2a5298);
             color: white;
             padding: 5px 40px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: bold;
             transform: rotate(45deg);
             letter-spacing: 1px;
         }
 
+        @media (min-width: 768px) {
+            .pricing-card.featured::after {
+                top: 30px;
+                right: -35px;
+                font-size: 12px;
+            }
+        }
+
         .pricing-card h3 {
             color: #1e3c72;
-            font-size: 32px;
-            margin-bottom: 35px;
+            font-size: 26px;
+            margin-bottom: 28px;
             font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        @media (min-width: 768px) {
+            .pricing-card h3 {
+                font-size: 32px;
+                margin-bottom: 35px;
+            }
+        }
+
+        .pricing-card h3 i {
+            color: #2a5298;
+            font-size: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .pricing-card h3 i {
+                font-size: 28px;
+            }
         }
 
         .pricing-card ul {
             list-style: none;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
             text-align: left;
         }
 
+        @media (min-width: 768px) {
+            .pricing-card ul {
+                margin-bottom: 35px;
+            }
+        }
+
         .pricing-card li {
-            padding: 14px 0;
+            padding: 12px 0;
             color: #555;
-            padding-left: 35px;
+            padding-left: 32px;
             position: relative;
-            font-size: 16px;
+            font-size: 15px;
+        }
+
+        @media (min-width: 768px) {
+            .pricing-card li {
+                padding: 14px 0;
+                padding-left: 35px;
+                font-size: 16px;
+            }
         }
 
         .pricing-card li:before {
@@ -459,23 +859,41 @@
             left: 0;
             color: #2a5298;
             font-weight: bold;
-            font-size: 20px;
+            font-size: 18px;
+        }
+
+        @media (min-width: 768px) {
+            .pricing-card li:before {
+                font-size: 20px;
+            }
         }
 
         .btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
             background: linear-gradient(135deg, #1e3c72, #2a5298);
             color: white;
-            padding: 16px 45px;
+            padding: 14px 35px;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 700;
             transition: all 0.3s;
             border: none;
             cursor: pointer;
-            font-size: 16px;
-            letter-spacing: 1px;
+            font-size: 15px;
+            letter-spacing: 0.5px;
             text-transform: uppercase;
+            touch-action: manipulation;
+        }
+
+        @media (min-width: 768px) {
+            .btn {
+                padding: 16px 45px;
+                font-size: 16px;
+                letter-spacing: 1px;
+            }
         }
 
         .btn:hover {
@@ -483,94 +901,130 @@
             box-shadow: 0 15px 30px rgba(30, 60, 114, 0.4);
         }
 
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
         /* Footer */
         footer {
             background: linear-gradient(135deg, #0f2847 0%, #1e3c72 100%);
             color: white;
-            padding: 60px 0 30px;
+            padding: 40px 0 20px;
             text-align: center;
         }
 
+        @media (min-width: 768px) {
+            footer {
+                padding: 60px 0 30px;
+            }
+        }
+
         .footer-content {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                margin-bottom: 30px;
+            }
         }
 
         footer h3 {
-            font-size: 28px;
-            margin-bottom: 20px;
+            font-size: 24px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        @media (min-width: 768px) {
+            footer h3 {
+                font-size: 28px;
+                margin-bottom: 20px;
+            }
+        }
+
+        footer h3 i {
+            color: #89b4f8;
         }
 
         footer p {
-            margin-bottom: 15px;
-            font-size: 16px;
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        @media (min-width: 768px) {
+            footer p {
+                margin-bottom: 15px;
+                font-size: 16px;
+            }
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .footer-links {
+                flex-direction: row;
+                justify-content: center;
+                gap: 0;
+            }
         }
 
         footer a {
             color: #89b4f8;
             text-decoration: none;
-            margin: 0 20px;
+            margin: 0;
             transition: all 0.3s;
             font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            padding: 8px 15px;
+            border-radius: 8px;
+        }
+
+        @media (min-width: 768px) {
+            footer a {
+                margin: 0 20px;
+                font-size: 16px;
+            }
         }
 
         footer a:hover {
             color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        footer a i {
+            font-size: 16px;
         }
 
         .footer-bottom {
-            margin-top: 40px;
-            padding-top: 30px;
+            margin-top: 30px;
+            padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             opacity: 0.7;
+            font-size: 14px;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 36px;
+        @media (min-width: 768px) {
+            .footer-bottom {
+                margin-top: 40px;
+                padding-top: 30px;
+                font-size: 15px;
             }
+        }
 
-            .hero-subtitle {
-                font-size: 20px;
-            }
-
-            .hero-description {
-                font-size: 16px;
-            }
-
-            nav ul {
-                display: none;
-            }
-
-            .header-content {
-                justify-content: center;
-            }
-
-            .logo-container {
-                width: 150px;
-                height: 150px;
-            }
-
-            .section-title {
-                font-size: 32px;
-            }
-
-            .pricing-card.featured {
-                transform: scale(1);
-            }
-
-            .hero-features {
-                grid-template-columns: 1fr;
-            }
-
-            .partners-track {
-                gap: 40px;
-            }
-
-            .partner-logo {
-                width: 180px;
-                height: 100px;
-            }
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
@@ -584,13 +1038,17 @@
                     <span class="brand-name">MD BUREAU</span>
                 </div>
 
-                <nav>
+                <button class="mobile-menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <nav id="mainNav">
                     <ul>
-                        <li><a href="#about">О нас</a></li>
-                        <li><a href="#partners">Партнеры</a></li>
-                        <li><a href="#clients">Клиенты</a></li>
-                        <li><a href="#pricing">Услуги</a></li>
-                        <li><a href="#contact">Контакты</a></li>
+                        <li><a href="#about"><i class="fas fa-info-circle"></i> О нас</a></li>
+                        <li><a href="#partners"><i class="fas fa-handshake"></i> Партнеры</a></li>
+                        <li><a href="#clients"><i class="fas fa-users"></i> Клиенты</a></li>
+                        <li><a href="#pricing"><i class="fas fa-tags"></i> Услуги</a></li>
+                        <li><a href="#contact"><i class="fas fa-envelope"></i> Контакты</a></li>
                     </ul>
                 </nav>
             </div>
@@ -601,8 +1059,11 @@
     <section class="hero" id="about">
         <div class="container">
             <div class="hero-content">
+                <h1>
+                    <img src="images/md-bureau.png" alt="MD Bureau Logo">
+                </h1>
                 
-                <div class="hero-subtitle">Юридическое сопровождение бизнеса нового поколения</div>
+                <div class="hero-subtitle">Юридическое сопровождение бизнеса в сфере беттинга и гемблинга</div>
                 <div class="hero-description">
                     Команда юристов с многолетним управленческим опытом<br>
                     в ведущих российских и международных компаниях
@@ -610,25 +1071,29 @@
 
                 <div class="hero-features">
                     <div class="feature-box">
+                        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
                         <h3>Снижение рисков</h3>
                         <p>Минимизация правовых и финансовых рисков</p>
                     </div>
                     <div class="feature-box">
+                        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
                         <h3>Рост бизнеса</h3>
                         <p>Устойчивое развитие и масштабирование</p>
                     </div>
                     <div class="feature-box">
+                        <div class="feature-icon"><i class="fas fa-cogs"></i></div>
                         <h3>Оптимизация</h3>
                         <p>Выстраивание процессов и Legal Tech</p>
                     </div>
                     <div class="feature-box">
+                        <div class="feature-icon"><i class="fas fa-globe"></i></div>
                         <h3>Глобально</h3>
                         <p>Работа по всему миру</p>
                     </div>
                 </div>
 
                 <div class="jurisdiction-badge">
-                    <div> Международная экспертиза</div>
+                    <div><i class="fas fa-map-marked-alt"></i> Международная экспертиза</div>
                     <div class="jurisdiction-list">
                         ОАЭ • США • ЕС • Бразилия • ЮАР • Казахстан • Армения • Узбекистан
                     </div>
@@ -640,67 +1105,59 @@
     <!-- Partners Section -->
     <section class="partners" id="partners">
         <div class="container">
-            <h2 class="section-title">Наши партнеры</h2>
+            <h2 class="section-title"><i class="fas fa-handshake"></i> Наши партнеры</h2>
         </div>
         <div class="partners-slider">
             <div class="partners-track">
-                <!-- Partner 1 -->
                 <div class="partner-logo">
                     <img src="images/bm.png" alt="Partner 1">
                 </div>
-                <!-- Partner 2 -->
                 <div class="partner-logo">
                     <img src="images/mr.png" alt="Partner 2">
                 </div>
-                <!-- Partner 3 -->
                 <div class="partner-logo">
                     <img src="images/od.png" alt="Partner 3">
                 </div>
-                <!-- Partner 4 -->
                 <div class="partner-logo">
                     <img src="images/rb.png" alt="Partner 4">
                 </div>
-                <!-- Partner 5 -->
                 <div class="partner-logo">
                     <img src="images/sd.png" alt="Partner 5">
                 </div>
-                <!-- Partner 6 -->
                 <div class="partner-logo">
                     <img src="images/sp.png" alt="Partner 6">
                 </div>
-                <!-- Partner 7 -->
                 <div class="partner-logo">
                     <img src="images/uf.png" alt="Partner 7">
                 </div>
-                <!-- Partner 8 -->
                 <div class="partner-logo">
                    <img src="images/vs.png" alt="Partner 8">
                 </div>
                 
                 <!-- Duplicate for seamless loop -->
                 <div class="partner-logo">
-                    <div class="partner-placeholder">Partner Logo 1</div>
+                    <img src="images/bm.png" alt="Partner 1">
                 </div>
                 <div class="partner-logo">
-                    <div class="partner-placeholder">Partner Logo 2</div>
+                    <img src="images/mr.png" alt="Partner 2">
                 </div>
                 <div class="partner-logo">
-                    <div class="partner-placeholder">Partner Logo 3</div>
+                    <img src="images/od.png" alt="Partner 3">
                 </div>
                 <div class="partner-logo">
-                    <div class="partner-placeholder">Partner Logo 4</div>
+                    <img src="images/rb.png" alt="Partner 4">
                 </div>
                 <div class="partner-logo">
-                    <div class="partner-placeholder">Partner Logo 5</div>
+                    <img src="images/sd.png" alt="Partner 5">
                 </div>
                 <div class="partner-logo">
-                    <div class="partner-placeholder">Partner Logo 6</div>
+                    <img src="images/sp.png" alt="Partner 6">
                 </div>
                 <div class="partner-logo">
-                    <div class="partner-placeholder">Partner Logo 7</div>
+                    <img src="images/uf.png" alt="Partner 7">
                 </div>
                 <div class="partner-logo">
-                    <div class="partner-placeholder">Partner Logo 8</div>
+                   <img src="images/vs.png" alt="Partner 8">
                 </div>
             </div>
         </div>
@@ -709,10 +1166,10 @@
     <!-- Clients Section -->
     <section class="clients" id="clients">
         <div class="container">
-            <h2 class="section-title">С кем мы работаем</h2>
+            <h2 class="section-title"><i class="fas fa-users"></i> С кем мы работаем</h2>
             <div class="clients-grid">
                 <div class="client-card">
-                    <h3>1. Операторы беттинга & онлайн-казино</h3>
+                    <h3><i class="fas fa-dice"></i> 1. Операторы беттинга & онлайн-казино</h3>
                     <ul>
                         <li>Онлайн-букмекеры</li>
                         <li>Онлайн-казино</li>
@@ -722,7 +1179,7 @@
                 </div>
 
                 <div class="client-card">
-                    <h3>2. IT-проекты в iGaming</h3>
+                    <h3><i class="fas fa-laptop-code"></i> 2. IT-проекты в iGaming</h3>
                     <ul>
                         <li>Платформы для запуска казино «под ключ»</li>
                         <li>SaaS-решения для беттинга и гэмблинга</li>
@@ -732,7 +1189,7 @@
                 </div>
 
                 <div class="client-card">
-                    <h3>3. Провайдеры контента и технологий</h3>
+                    <h3><i class="fas fa-gamepad"></i> 3. Провайдеры контента и технологий</h3>
                     <ul>
                         <li>Разработчики игровых автоматов и live-casino</li>
                         <li>Провайдеры RNG, live-дилеров</li>
@@ -742,7 +1199,7 @@
                 </div>
 
                 <div class="client-card">
-                    <h3>4. Платёжные и финтех-компании</h3>
+                    <h3><i class="fas fa-credit-card"></i> 4. Платёжные и финтех-компании</h3>
                     <ul>
                         <li>Платёжные провайдеры (PSP), работающие с high-risk бизнесом</li>
                         <li>Электронные кошельки</li>
@@ -752,7 +1209,7 @@
                 </div>
 
                 <div class="client-card">
-                    <h3>5. Маркетинг и аффилиат-бизнес</h3>
+                    <h3><i class="fas fa-bullhorn"></i> 5. Маркетинг и аффилиат-бизнес</h3>
                     <ul>
                         <li>Affiliate-сети</li>
                         <li>Арбитражные команды</li>
@@ -762,7 +1219,7 @@
                 </div>
 
                 <div class="client-card">
-                    <h3>6. Холдинги</h3>
+                    <h3><i class="fas fa-building"></i> 6. Холдинги</h3>
                     <ul>
                         <li>Венчурные фонды</li>
                         <li>Холдинговые структуры iGaming-групп</li>
@@ -771,7 +1228,7 @@
                 </div>
 
                 <div class="client-card">
-                    <h3>7. Сервисные компании вокруг индустрии</h3>
+                    <h3><i class="fas fa-headset"></i> 7. Сервисные компании вокруг индустрии</h3>
                     <ul>
                         <li>Call-центры и службы поддержки</li>
                         <li>KYC-провайдеры</li>
@@ -786,10 +1243,10 @@
     <!-- Pricing Section -->
     <section class="pricing" id="pricing">
         <div class="container">
-            <h2 class="section-title">Продуктовая линейка</h2>
+            <h2 class="section-title"><i class="fas fa-tags"></i> Продуктовая линейка</h2>
             <div class="pricing-grid">
                 <div class="pricing-card">
-                    <h3>Base / Start</h3>
+                    <h3><i class="fas fa-rocket"></i> Base / Start</h3>
                     <ul>
                         <li>До X часов в месяц</li>
                         <li>Договоры</li>
@@ -797,11 +1254,14 @@
                         <li>Претензии</li>
                         <li>Ответ ≤ 24 часов</li>
                     </ul>
-                    <a href="#contact" class="btn">Подключить</a>
+                    <a href="#contact" class="btn">
+                        <i class="fas fa-arrow-right"></i>
+                        Подключить
+                    </a>
                 </div>
 
                 <div class="pricing-card featured">
-                    <h3>Business</h3>
+                    <h3><i class="fas fa-star"></i> Business</h3>
                     <ul>
                         <li>Выделенный юрист (account)</li>
                         <li>Все договоры + кастомизация</li>
@@ -809,18 +1269,24 @@
                         <li>Переговоры</li>
                         <li>Ответ ≤ 4–8 часов</li>
                     </ul>
-                    <a href="#contact" class="btn">Подключить</a>
+                    <a href="#contact" class="btn">
+                        <i class="fas fa-arrow-right"></i>
+                        Подключить
+                    </a>
                 </div>
 
                 <div class="pricing-card">
-                    <h3>Pro / Legal Department</h3>
+                    <h3><i class="fas fa-crown"></i> Pro / Legal Department</h3>
                     <ul>
                         <li>Юрист как внешний in-house</li>
                         <li>Подключение специалистов</li>
                         <li>Судебная работа</li>
                         <li>Аудиты</li>
                     </ul>
-                    <a href="#contact" class="btn">Подключить</a>
+                    <a href="#contact" class="btn">
+                        <i class="fas fa-arrow-right"></i>
+                        Подключить
+                    </a>
                 </div>
             </div>
         </div>
@@ -830,18 +1296,68 @@
     <footer id="contact">
         <div class="container">
             <div class="footer-content">
-                <h3>MD Bureau</h3>
+                <h3><i class="fas fa-balance-scale"></i> MD Bureau</h3>
                 <p>Юридическое сопровождение для iGaming и IT-бизнеса</p>
-                <p>
-                    <a href="mailto:info@mdbureau.com">info@mdbureau.com</a>
-                    <a href="tel:+74951234567">+7 (495) 123-45-67</a>
-                </p>
+                <div class="footer-links">
+                    <a href="mailto:info@mdbureau.com">
+                        <i class="fas fa-envelope"></i>
+                        info@mdbureau.com
+                    </a>
+                    <a href="tel:+74951234567">
+                        <i class="fas fa-phone"></i>
+                        +7 (495) 123-45-67
+                    </a>
+                </div>
             </div>
             <div class="footer-bottom">
                 <p>© 2025 MD Bureau. Все права защищены.</p>
             </div>
         </div>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('mainNav');
+            const toggle = document.querySelector('.mobile-menu-toggle i');
+            
+            nav.classList.toggle('active');
+            
+            if (nav.classList.contains('active')) {
+                toggle.classList.remove('fa-bars');
+                toggle.classList.add('fa-times');
+            } else {
+                toggle.classList.remove('fa-times');
+                toggle.classList.add('fa-bars');
+            }
+        }
+
+        // Закрытие меню при клике на ссылку (для мобильных)
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 992) {
+                    const nav = document.getElementById('mainNav');
+                    const toggle = document.querySelector('.mobile-menu-toggle i');
+                    nav.classList.remove('active');
+                    toggle.classList.remove('fa-times');
+                    toggle.classList.add('fa-bars');
+                }
+            });
+        });
+
+        // Закрытие меню при клике вне его
+        document.addEventListener('click', (e) => {
+            const nav = document.getElementById('mainNav');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            
+            if (nav.classList.contains('active') && 
+                !nav.contains(e.target) && 
+                !toggle.contains(e.target)) {
+                nav.classList.remove('active');
+                const icon = toggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    </script>
 </body>
 </html>
-
