@@ -324,27 +324,33 @@
             }
         }
 
-        .hero-features {
+     .hero-features {
             display: grid;
             grid-template-columns: 1fr;
             gap: 20px;
             margin: 30px 0;
             animation: fadeInUp 1s ease-out 0.6s both;
+            justify-content: center;  /* ← Добавьте эту строку */
         }
 
         @media (min-width: 640px) {
             .hero-features {
                 grid-template-columns: repeat(2, 1fr);
+                max-width: 800px;  /* ← Добавьте эту строку */
+                margin-left: auto;  /* ← Добавьте эту строку */
+                margin-right: auto; /* ← Добавьте эту строку */
             }
         }
 
         @media (min-width: 1024px) {
             .hero-features {
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(3, 1fr);  /* ← Измените на 3 вместо 4 */
                 gap: 30px;
-                margin: 50px 0;
+                margin: 50px auto;  /* ← Измените на auto */
+                max-width: 900px;  /* ← Добавьте эту строку */
             }
         }
+
 
         .feature-box {
             background: rgba(255, 255, 255, 0.1);
@@ -353,7 +359,7 @@
             border-radius: 15px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s;
-            text-align: center;
+            text-align: center;  /* ← Добавьте эту строку */
         }
 
         @media (min-width: 768px) {
